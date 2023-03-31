@@ -32,17 +32,19 @@ interface signUpData {
     errorType?: string;
   };
   data: userData;
+  profile_image: FileList
 }
 
 const fileFormSchema = yup
   .mixed()
-  .test("fileSize", `Upload file under ${MAX_SIZE_FILE}`, (file) => {
-    console.log(file);
-    if (file) {
-      //if u want to allow only certain file sizes
-      return file.size <= MAX_SIZE_FILE;
-    }
-  });
+  .test("fileSize", `Upload file under ${MAX_SIZE_FILE}`, (file: FileList) => file?.length <= MAX_SIZE_FILE
+  //  {
+  //   if (file) {
+  //     //if u want to allow only certain file sizes
+  //     return file.length <= MAX_SIZE_FILE;
+  //   }
+  // }
+  );
 
 const schema = yup.object().shape({
   email: yup

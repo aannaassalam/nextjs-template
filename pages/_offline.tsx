@@ -1,8 +1,7 @@
 import dynamic from "next/dynamic";
 import React from "react";
 import offlineJson from "@/json/lottie/offline.json";
-import { checkWindow } from "@/lib/functions/storage.lib";
-
+import { checkWindow } from "@/lib/functions/_helpers.lib";
 
 const Lottie = dynamic(() => import("lottie-react"));
 const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
@@ -21,13 +20,11 @@ const OfflinePage = () => {
     <Wrapper>
       <Container sx={{ padding: 5 }}>
         <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: offlineJson,
-            rendererSettings: {
-              preserveAspectRatio: "xMidYMid slice"
-            }
+          loop
+          autoPlay
+          animationData={offlineJson}
+          rendererSettings={{
+            preserveAspectRatio: "xMidYMid slice",
           }}
           height={300}
           width={300}

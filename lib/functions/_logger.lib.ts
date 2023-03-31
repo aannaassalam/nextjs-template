@@ -8,8 +8,8 @@ const logger = (() => {
       const enabled =
         search && new URLSearchParams(search).get("debug") === "true";
 
-      global.areLogsEnabled = enabled || false;
-      return global.areLogsEnabled;
+      (global as any).areLogsEnabled = enabled || false;
+      return (global as any).areLogsEnabled;
     }
 
     return false;
@@ -17,12 +17,12 @@ const logger = (() => {
 
   const isDev = process.env.NODE_ENV !== "production";
 
-  const print = (type:type, ...messages) => {
-    if (typeof global.areLogsEnabled === "undefined") {
+  const print = (type: any, ...messages: any[]) => {
+    if ((global as any).areLogsEnabled === "undefined") {
       checkIfLogsEnabled();
     }
 
-    if (global.areLogsEnabled || isDev) {
+    if ((global as any).areLogsEnabled || isDev) {
       switch (type) {
         case "log":
           console.log(

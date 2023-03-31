@@ -16,8 +16,9 @@ export default function createEmotionCache() {
       'meta[name="emotion-insertion-point"]'
     );
 
+    // eslint-disable-next-line unused-imports/no-unused-vars
     insertionPoint = emotionInsertionPoint ?? null;
   }
 
-  return createCache({ key: "mui-style", insertionPoint });
+  return createCache({ key: "mui-style" });
 }

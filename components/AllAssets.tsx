@@ -6,7 +6,7 @@ const AllAssets = () => {
   return (
     <div>
       {Object.keys(assest).map((icon) => (
-        <Image src={assest[icon]} alt={icon} height={125} width={125} />
+        <Image src={assest[icon as keyof typeof assest]} alt={icon} height={125} width={125} />
       ))}
 
       <Divider />
