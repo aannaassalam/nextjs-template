@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import { createStateSyncMiddleware } from "redux-state-sync";
 import rootReducer from "../slices/rootReducer";
 
 // ...
@@ -11,7 +10,7 @@ const config = {
   receiveState: (prevState: any, nextState: any) => nextState
 };
 
-const middleware = [createStateSyncMiddleware(config), logger];
+const middleware = [ logger];
 
 export const store = configureStore({
   reducer: rootReducer,
