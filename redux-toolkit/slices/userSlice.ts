@@ -2,10 +2,11 @@ import { userData } from "@/types/common.type";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { destroyCookie } from "nookies";
 import { userSliceData } from "../interfaces/interfaces";
-
+import { Cookies } from "react-cookie";
+const cookie = new Cookies();
 const initialState: userSliceData = {
   isLoggedIn: false,
-  userData: null
+  userData: null,
 };
 
 export const loginUser = createAsyncThunk(
@@ -40,11 +41,16 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.isLoggedIn = false;
       state.userData = null;
-      destroyCookie(null, "token");
-      destroyCookie(null, "user");
-    }
+      // cookie.remove("privy_token");
+      // cookie.remove("user");
+
+      destroyCookie(null, "user", { path: "/" });
+      destroyCookie(null, "career_token", { path: "/" });
+
+      window.location.href = "/login";
+    },
   },
-  extraReducers: {}
+  extraReducers: {},
 });
 
 export const { setLoginData, checkLoggedInServer, logout } = userSlice.actions;

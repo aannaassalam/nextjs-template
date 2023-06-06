@@ -39,15 +39,9 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "jsxImportSource": "@emotion/react"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "mui-theme/createEmotionCache.ts",
-    "mui-theme/index.jsx",
-    "pages/_document.jsx"
-, "theme/globalStyles.ts"  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

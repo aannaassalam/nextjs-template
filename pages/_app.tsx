@@ -1,19 +1,20 @@
+import EventListeners from "@/components/EventListener/EventListener";
 import { checkWindow } from "@/lib/functions/_helpers.lib";
 import { checkLoggedInServer } from "@/reduxtoolkit/slices/userSlice";
 import { store } from "@/reduxtoolkit/store/store";
 import "@/styles/global.scss";
+import createEmotionCache from "@/themes/createEmotionCache";
+import theme from "@/themes/theme";
 import { userData } from "@/types/common.type";
 import ToastifyProvider from "@/ui/toastify/ToastifyProvider";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
-import dynamic from "next/dynamic";
 import nookies from "nookies";
 import React from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 import { Provider } from "react-redux";
-
-const MuiTheme = dynamic(() => import("@/themes/index"), { ssr: true });
 
 /**
  * It suppresses the useLayoutEffect warning when running in SSR mode
@@ -30,16 +31,20 @@ function fixSSRLayout() {
 
 const queryClient = new QueryClient();
 
-interface CustomAppProps extends AppProps {
-  user: userData | null;
+export interface CustomAppProps extends AppProps {
+  user?: userData | null;
   hasToken?: boolean;
+
+  emotionCache?: EmotionCache;
 }
 
+const clientSideEmotionCache = createEmotionCache();
 export default function CustomApp({
   Component,
   pageProps,
   hasToken,
-  user
+  user,
+  emotionCache = clientSideEmotionCache,
 }: CustomAppProps) {
   fixSSRLayout();
 
@@ -49,16 +54,20 @@ export default function CustomApp({
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ToastifyProvider>
-            <MuiTheme>
-              <Component {...pageProps} />
-            </MuiTheme>
-          </ToastifyProvider>
+          <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <ToastifyProvider>
+              <><EventListeners />
+                <Component {...pageProps} /></>
+              </ToastifyProvider>
+            </ThemeProvider>
+          </CacheProvider>
         </Hydrate>
 
-        {process.env.NODE_ENV === "development" && (
+        {/* {process.env.NODE_ENV === "development" && (
           <ReactQueryDevtools initialIsOpen={false} />
-        )}
+        )} */}
       </QueryClientProvider>
     </Provider>
   );
@@ -86,7 +95,6 @@ CustomApp.getInitialProps = async (context: AppContext) => {
     user = JSON.parse(cookies?.user);
   }
 
-  console.log(cookies, "head");
 
   return { ...appProps, hasToken, user };
 };

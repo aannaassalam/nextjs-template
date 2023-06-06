@@ -22,13 +22,10 @@ module.exports = withPWA({
       "api.lorem.space",
       "picsum.photos",
       "placeimg.com",
-      "encrypted-tbn0.gstatic.com"
+      "encrypted-tbn0.gstatic.com",
+      "career-utility.dedicateddevelopers.us"
     ]
   },
-  eslint: {
-    ignoreDuringBuilds: true
-  },
-  productionBrowserSourceMaps: true,
   swcMinify: false,
   compress: true,
   optimizeFonts: true,

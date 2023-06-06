@@ -15,8 +15,7 @@ const CustomInputWith_forwardRef = (
     type,
     startAdornment,
     endAdornment
-  }: CommonMuiInputProps,
-  ref: MutableRefObject
+  }: CommonMuiInputProps
 ) => {
   const id = useId();
   return (

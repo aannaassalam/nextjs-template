@@ -10,3 +10,13 @@ export const fetchAboutUs = async () => {
   }
 };
 
+// Faq
+export const faqQuery =  () => {
+  try {
+  const res =  ApiRequest.get(endpoints.cms.faq);
+
+  return res;
+} catch (error) {
+  return error;
+}
+};
