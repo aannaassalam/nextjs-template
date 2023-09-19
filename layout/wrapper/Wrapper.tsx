@@ -1,11 +1,14 @@
 /* eslint-disable no-undef */
-import React from "react";
-import useOnlineStatus from "@/hooks/useDetectOnline";
-import { Backdrop, Box, CircularProgress } from "@mui/material";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import { useRouter } from "next/router";
 import Seo from "@/components/Seo/Seo";
+import useOnlineStatus from "@/hooks/useDetectOnline";
+import { WrapperStyle } from "@/styles/StyledComponents/WrapperStyle";
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useRouter } from "next/router";
+import React from "react";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 interface wrapperProps {
   children: JSX.Element | JSX.Element[];
@@ -68,30 +71,32 @@ const Wrapper = (props: wrapperProps) => {
   return (
     <>
       {/* <NextProgress height={8} color="#266C87" /> */}
-      <Seo
-        title={
-          router.pathname === "/"
-            ? `${projectName}`
-            : `${projectName} || ${favText}`
-        }
-        canonical={""}
-        description={""}
-        url={""}
-        image={""}
-      />
-      <Header />
+      <WrapperStyle>
+        <Seo
+          title={
+            router.pathname === "/"
+              ? `${projectName}`
+              : `${projectName} || ${favText}`
+          }
+          canonical=""
+          description=""
+          url=""
+          image=""
+        />
+        <Header />
 
-      <Box className="body_content">{children}</Box>
+        <Box className="body_content">{children}</Box>
 
-      <Footer />
+        <Footer />
 
-      <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-        onClick={handleClose}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={open}
+          onClick={handleClose}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      </WrapperStyle>
     </>
   );
 };

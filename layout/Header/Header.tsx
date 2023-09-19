@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable react/no-unused-prop-types */
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,19 +16,16 @@ import * as React from "react";
 
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
+import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
-import styles from "@/styles/layout/header.module.scss";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
 import { Container } from "@mui/system";
 import Image from "next/image";
-import assest from "@/json/assest";
-import CustomButtonOutline from "@/ui/Buttons/CustomButtonOutline";
-import { Button } from "@mui/material";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
+// const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
 interface Props {
   /**
@@ -39,14 +38,14 @@ interface Props {
 const drawerWidth = 240;
 
 const HeaderWrap = styled(Box)`
-background: var(--white);
-box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
-.MuiToolbar-root {
-  min-height: auto;
-}
-.hdr_rgt {
-  margin-left: 18px;
-}
+  background: var(--white);
+  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
+  .MuiToolbar-root {
+    min-height: auto;
+  }
+  .hdr_rgt {
+    margin-left: 18px;
+  }
 
   .headerContainer {
     background-color: transparent !important;
@@ -82,31 +81,32 @@ box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
 `;
 
 export default function Header(props: Props) {
+  console.log(props);
   const navItems = [
     {
       name: "Home",
-      route: "/",
+      route: "/"
     },
     {
       name: "Superchargers",
-      route: "/superchargers",
+      route: "/superchargers"
     },
     {
       name: "Hosts",
-      route: "/hosts",
+      route: "/hosts"
     },
     {
       name: "Leasing Agents",
-      route: "/leasingagents",
+      route: "/leasingagents"
     },
     {
       name: "EV Drivers",
-      route: "/drivers",
+      route: "/drivers"
     },
     {
       name: "About Us",
-      route: "/about",
-    },
+      route: "/about"
+    }
   ];
 
   // const { window } = props;
@@ -167,7 +167,7 @@ export default function Header(props: Props) {
         component="nav"
         position="static"
         elevation={0}
-        className='headerContainer'
+        className="headerContainer"
       >
         <Container fixed className="cus_container">
           <Toolbar>
@@ -181,39 +181,39 @@ export default function Header(props: Props) {
               <MenuIcon />
             </IconButton>
             <Link href="/" className="headerLogo">
-              <Image
-                src={assest.logo_img}
-                width={250}
-                height={38}
-                alt="Logo"
-              />
+              <Image src={assest.logo_img} width={250} height={38} alt="Logo" />
             </Link>
             {isLoggedIn ? (
               <Box
                 sx={{ display: { xs: "none", sm: "block" } }}
                 className="navbar"
               >
-                <CustomButton
+                <CustomButtonPrimary
                   onClick={handleLogout}
                   type="button"
-                  variant="text"
+                  variant="contained"
+                  color="primary"
                 >
                   <span>Logout</span>
-                </CustomButton>
+                </CustomButtonPrimary>
 
-                <CustomButton type="button" variant="text">
+                <CustomButtonPrimary
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                >
                   <span>{userData?.email}</span>
-                </CustomButton>
+                </CustomButtonPrimary>
               </Box>
             ) : (
               <Box
                 sx={{ display: { xs: "none", sm: "block" } }}
                 className="navbar"
               >
-                {navItems.map((item,index) => (
+                {navItems.map((item) => (
                   <Link
                     href={item?.route}
-                    key={index}
+                    key={item?.route}
                     className={router.pathname === item.route ? "active" : ""}
                   >
                     {/* <CustomButton type="button" variant="text"> */}
@@ -224,11 +224,13 @@ export default function Header(props: Props) {
               </Box>
             )}
             <Box className="hdr_rgt">
-    
-              <CustomButton type="button">
+              <CustomButtonPrimary
+                type="button"
+                variant="contained"
+                color="primary"
+              >
                 <Typography variant="caption">Become A Host</Typography>
-              </CustomButton>
-            
+              </CustomButtonPrimary>
             </Box>
           </Toolbar>
         </Container>
@@ -239,14 +241,14 @@ export default function Header(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true // Better open performance on mobile.
           }}
           sx={{
             display: { xs: "block", lg: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
-            },
+              width: drawerWidth
+            }
           }}
         >
           {drawer}

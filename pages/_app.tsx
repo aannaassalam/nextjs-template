@@ -3,12 +3,12 @@ import { checkWindow } from "@/lib/functions/_helpers.lib";
 import { checkLoggedInServer } from "@/reduxtoolkit/slices/userSlice";
 import { store } from "@/reduxtoolkit/store/store";
 import "@/styles/global.scss";
+import MuiThemeProvider from "@/themes/MuiThemeProvider";
 import createEmotionCache from "@/themes/createEmotionCache";
-import theme from "@/themes/theme";
 import { userData } from "@/types/common.type";
 import ToastifyProvider from "@/ui/toastify/ToastifyProvider";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
 import nookies from "nookies";
@@ -44,7 +44,7 @@ export default function CustomApp({
   pageProps,
   hasToken,
   user,
-  emotionCache = clientSideEmotionCache,
+  emotionCache = clientSideEmotionCache
 }: CustomAppProps) {
   fixSSRLayout();
 
@@ -55,13 +55,15 @@ export default function CustomApp({
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>
-            <ThemeProvider theme={theme}>
+            <MuiThemeProvider>
               <CssBaseline />
               <ToastifyProvider>
-              <><EventListeners />
-                <Component {...pageProps} /></>
+                <>
+                  <EventListeners />
+                  <Component {...pageProps} />
+                </>
               </ToastifyProvider>
-            </ThemeProvider>
+            </MuiThemeProvider>
           </CacheProvider>
         </Hydrate>
 
@@ -94,7 +96,6 @@ CustomApp.getInitialProps = async (context: AppContext) => {
   if (cookies?.user?.length) {
     user = JSON.parse(cookies?.user);
   }
-
 
   return { ...appProps, hasToken, user };
 };
