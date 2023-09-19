@@ -1,14 +1,15 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/require-default-props */
+import { primaryColors } from "@/themes/_muiPalette";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 // eslint-disable-next-line import/order
-
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import TextField, { StandardTextFieldProps } from "@mui/material/TextField";
 import { styled } from "@mui/system";
 
 import React, { forwardRef } from "react";
-import { primaryColors } from "Theme/_muiPalette";
-import EyeOpenIcon from "ui/Icons/EyeOpenIcon";
 
 const InputWrap = styled(TextField as any)`
   .MuiInputBase-adornedEnd {
@@ -153,7 +154,7 @@ const InputFieldCommon = forwardRef<HTMLInputElement, InputFieldCommonProps>(
                 onMouseDown={handleMouseDownPassword}
                 disableRipple
               >
-                {showPassword ? <EyeOpenIcon /> : <VisibilityOffIcon />}
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </IconButton>
             </InputAdornment>
           ) : (

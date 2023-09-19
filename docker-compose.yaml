@@ -8,7 +8,7 @@ services:
 
     image: webskittersdocker/node18:latest
 
-    container_name: us-supercharge-ui-NextJS
+    container_name: procell-ui-NextJS
 
     restart: unless-stopped
 
@@ -25,9 +25,10 @@ services:
 
     ports:
 
-      - "14036:14036"
+      - "14047:14047"
     command: >
-      sh -c "npm run build &&
+      sh -c "npm i --force &&
+             npm run build &&
              npm start"
 
 

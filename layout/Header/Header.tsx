@@ -229,7 +229,7 @@ export default function Header(props: Props) {
                 variant="contained"
                 color="primary"
               >
-                <Typography variant="caption">Become A Host</Typography>
+                <Typography>Login</Typography>
               </CustomButtonPrimary>
             </Box>
           </Toolbar>

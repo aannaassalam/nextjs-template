@@ -124,7 +124,7 @@ export const HeaderWrap = styled(Box)`
         width: 12px;
         height: 12px;
         border-radius: 100%;
-        border: 2px solid var(--bodyColor);
+        border: 2px solid ${primaryColors?.bodyColor};
         background: var(--primaryMain);
         position: absolute;
         right: 0;

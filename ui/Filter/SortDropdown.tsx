@@ -1,12 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
-import {
-  MenuItem,
-  OutlinedInput,
-  Select,
-  SelectChangeEvent
-} from "@mui/material";
-import { primaryColors } from "Theme/_muiPalette";
+import MenuItem from "@mui/material/MenuItem";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+
 import React, { useEffect } from "react";
+
 const CustomSelectWrapper = styled(Select)`
   &.MuiOutlinedInput-root {
     background-color: ${primaryColors.white};
@@ -92,7 +93,7 @@ const SortDropdown = ({
       IconComponent={Icon}
       renderValue={(selected: any) => {
         if (!selected) {
-          return <>{defaultValueDisplay}</>;
+          return { defaultValueDisplay };
         }
 
         return selected;

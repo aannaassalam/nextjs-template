@@ -1,22 +1,26 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/no-extraneous-dependencies */
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
-import { Box, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import {
   DatePicker,
   DateTimePicker,
   LocalizationProvider
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { primaryColors } from "Theme/_muiPalette";
 import dayjs, { Dayjs } from "dayjs";
 import assest from "json/assest";
 import React, { useState } from "react";
+
 const DatepickerWrapper = styled(Box)`
   min-width: 220px;
   width: 100%;
 
   .datepickerSectionWrap {
     position: relative;
-   
+
     border-radius: 8px;
 
     fieldset {
@@ -46,7 +50,7 @@ const DatepickerWrapper = styled(Box)`
 
           padding: 10px 12.5px;
           padding-right: 0;
-          background: url(${assest.calender}) center right no-repeat;
+          background: url(${assest.logo_img}) center right no-repeat;
         }
 
         .MuiButtonBase-root {
@@ -157,7 +161,7 @@ function Datepickersection({
     })}`
   );
 
-  console.log(SelectedDate as any, "day");
+  // console.log(SelectedDate as any, "day");
 
   return (
     <DatepickerWrapper>

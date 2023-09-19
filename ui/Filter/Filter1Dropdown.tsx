@@ -1,3 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable mui-path-imports/mui-path-imports */
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import {
   IconButton,
@@ -7,9 +14,11 @@ import {
   SelectChangeEvent,
   Stack
 } from "@mui/material";
-import { primaryColors } from "Theme/_muiPalette";
+
+import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import DropDownIcon from "ui/Icons/DropDownIcon";
+import DropDownIcon from "../Icons/DropdownIcon";
+
 const CustomSelectWrapper = styled(Select)`
   /* width: fit-content; */
   &.MuiOutlinedInput-root {
@@ -149,7 +158,7 @@ const Filter1Dropdown = ({ onDataCallback, dataset }: SelectProps) => {
         if (!selected) {
           return (
             <Stack
-              direction={"row"}
+              direction="row"
               className={
                 personName.name === "Pending"
                   ? "pending"
@@ -158,14 +167,14 @@ const Filter1Dropdown = ({ onDataCallback, dataset }: SelectProps) => {
                   : "rejected"
               }
             >
-              <img src={dataset.at(0)?.icon} alt="" /> {dataset.at(0)?.name}
+              <Image src={dataset[0]?.icon} alt="" /> {dataset[0]?.name}
             </Stack>
           );
         }
 
         return (
           <Stack
-            direction={"row"}
+            direction="row"
             className={
               personName.name === "Pending"
                 ? "pending"
@@ -174,7 +183,8 @@ const Filter1Dropdown = ({ onDataCallback, dataset }: SelectProps) => {
                 : "rejected"
             }
           >
-            <img src={personName?.icon} alt="" /> {personName?.name}
+            <Image src={personName?.icon} alt="" width={20} height={20} />{" "}
+            {personName?.name}
           </Stack>
         );
       }}

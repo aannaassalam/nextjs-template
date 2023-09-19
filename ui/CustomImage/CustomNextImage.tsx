@@ -1,6 +1,6 @@
 import assest from "@/json/assest";
 import Image, { ImageProps } from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const CustomNextImage = (props: ImageProps) => {
   const { src, ...rest } = props;
@@ -15,7 +15,7 @@ const CustomNextImage = (props: ImageProps) => {
       {...rest}
       src={imgSrc}
       onError={() => {
-        setImgSrc(assest.noimage);
+        setImgSrc(assest.logo_img);
       }}
     />
   );

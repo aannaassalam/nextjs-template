@@ -1,5 +1,5 @@
 export interface CustomIconProps {
-  IconColor: string;
-  IconWidth: string;
-  IconHeight: string;
+  IconColor?: string;
+  IconWidth?: string;
+  IconHeight?: string;
 }

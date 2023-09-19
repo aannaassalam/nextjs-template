@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable mui-path-imports/mui-path-imports */
 import { PaletteMode } from "@mui/material";
 import type { ThemeOptions } from "@mui/material/styles";
 import { pallete, primaryColors } from "./_muiPalette";
@@ -14,25 +17,13 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
   return {
     palette: pallete(mode),
     typography: {
-      fontFamily: [
-        "Work Sans"
-        // "BlinkMacSystemFont",
-        // "Poppins",
-        // "-apple-system",
-        // '"Segoe UI"',
-        // "Roboto",
-        // '"Helvetica Neue"',
-        // "Arial",
-        // "sans-serif",
-        // '"Apple Color Emoji"',
-        // '"Segoe UI Emoji"',
-        // '"Segoe UI Symbol"'
-      ].join(","),
+      fontFamily: ["Roboto"].join(","),
       fontSize: 14,
       h1: {
-        fontSize: "28px",
+        fontSize: "67px",
         lineHeight: "1.1em",
-        fontWeight: "600",
+        fontWeight: "700",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "22px",
           lineHeight: "1.1em"
@@ -41,7 +32,8 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       h2: {
         fontSize: "24px",
         lineHeight: "1.1em",
-        fontWeight: "600",
+        fontWeight: "700",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "22px",
           lineHeight: "26px"
@@ -50,7 +42,8 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       h3: {
         fontSize: "20px",
         lineHeight: "1.1em",
-        fontWeight: "600",
+        fontWeight: "700",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "18px",
           lineHeight: "1.1em"
@@ -60,6 +53,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "18px",
         lineHeight: "1.3",
         fontWeight: "500",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "16px",
           lineHeight: "1.3"
@@ -69,6 +63,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "15px",
         lineHeight: "1.4",
         fontWeight: "500",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "12px",
           lineHeight: "1.4"
@@ -78,6 +73,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "12px",
         lineHeight: "1.5",
         fontWeight: "500",
+        fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "12px",
           lineHeight: "1.5"
@@ -257,16 +253,18 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       },
       MuiButton: {
         styleOverrides: {
-          root: ({ ownerState, theme }) => {
+          root: ({ ownerState }) => {
             if (
               ownerState.variant === "contained" &&
               ownerState.color === "primary"
             ) {
               return {
-                backgroundColor: primaryColors?.primary,
-                border: `1px solid ${primaryColors?.primary_600}`,
+                // backgroundColor: primaryColors?.primary,
+                background: ` linear-gradient(279deg, ${primaryColors?.primary1} -7.77%, ${primaryColors?.primary} 109.39%);`,
+                borderRadius: "50px",
+
                 "&:hover": {
-                  background: primaryColors?.primary_600,
+                  background: ` linear-gradient(279deg, ${primaryColors?.primary} -7.77%, ${primaryColors?.primary1} 109.39%);`,
                   color: primaryColors?.white
                 }
               };

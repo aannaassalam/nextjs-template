@@ -2,6 +2,7 @@
 import Seo from "@/components/Seo/Seo";
 import useOnlineStatus from "@/hooks/useDetectOnline";
 import { WrapperStyle } from "@/styles/StyledComponents/WrapperStyle";
+import { primaryColors } from "@/themes/_muiPalette";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -41,63 +42,40 @@ const Wrapper = (props: wrapperProps) => {
 
   routerText.shift();
   const favText = routerText.join("").toString().toUpperCase();
-  const projectName = "abc";
+  const projectName = "Procell";
 
   useOnlineStatus();
 
-  // if ((loader) && checkWindow()) {
-  //   return (
-  //     <Backdrop
-  //       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-  //       open
-  //     >
-  //       <CircularProgress sx={{ color: "inherit" }} />
-  //     </Backdrop>
-  //   );
-  // }
-
-  // useOnlineStatus();
-
-  // useEffect(() => {
-  //   Router.events.on("routeChangeStart", () => setOpen(true));
-  //   Router.events.on("routeChangeComplete", () => setOpen(false));
-  //   Router.events.on("routeChangeError", () => setOpen(false));
-  //   return () => {
-  //     Router.events.off("routeChangeStart", () => setOpen(true));
-  //     Router.events.off("routeChangeComplete", () => setOpen(false));
-  //     Router.events.off("routeChangeError", () => setOpen(false));
-  //   };
-  // }, [Router.events]);
   return (
-    <>
-      {/* <NextProgress height={8} color="#266C87" /> */}
-      <WrapperStyle>
-        <Seo
-          title={
-            router.pathname === "/"
-              ? `${projectName}`
-              : `${projectName} || ${favText}`
-          }
-          canonical=""
-          description=""
-          url=""
-          image=""
-        />
-        <Header />
+    <WrapperStyle>
+      <Seo
+        title={
+          router.pathname === "/"
+            ? `${projectName}`
+            : `${projectName} || ${favText}`
+        }
+        canonical=""
+        description=""
+        url=""
+        image=""
+      />
+      <Header />
 
-        <Box className="body_content">{children}</Box>
+      <Box className="body_content">{children}</Box>
 
-        <Footer />
+      <Footer />
 
-        <Backdrop
-          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open={open}
-          onClick={handleClose}
-        >
-          <CircularProgress color="inherit" />
-        </Backdrop>
-      </WrapperStyle>
-    </>
+      <Backdrop
+        sx={{
+          color: `${primaryColors?.white}`,
+          zIndex: (theme) => theme.zIndex.drawer + 1
+        }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </WrapperStyle>
   );
 };
 

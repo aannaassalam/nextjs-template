@@ -1,15 +1,15 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
-import { primaryColors } from "Theme/_muiPalette";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import * as React from "react";
 
 const CustomTabWrapper = styled(Box)`
   margin-left: 0%;
-  .MuiTabs-root{
+  .MuiTabs-root {
     min-height: auto;
- }
+  }
   .main_tabWrapper {
     background-color: ${primaryColors.bodyColor};
     border-radius: 8px;
@@ -21,7 +21,7 @@ const CustomTabWrapper = styled(Box)`
       min-height: auto;
       color: ${primaryColors?.mainFontColor};
       position: relative;
-      &::after{
+      &::after {
         content: "";
         width: 2px;
         height: 16px;
@@ -29,33 +29,31 @@ const CustomTabWrapper = styled(Box)`
         border-radius: 8px;
         position: absolute;
         right: 0;
-        top:50%;
+        top: 50%;
         transform: translateY(-50%);
-
       }
-      &:last-child{
-        &::after{
+      &:last-child {
+        &::after {
           display: none;
         }
       }
       &:hover {
         background-color: none !important;
       }
-   
+
       &.Mui-selected {
         background-color: ${primaryColors.white};
         border-radius: 8px;
         border-bottom: none;
         color: ${primaryColors.textPrimaryColor};
-       
-        &::after{
-          
-          opacity: 0; 
+
+        &::after {
+          opacity: 0;
         }
       }
     }
-    .MuiTabs-indicator{
-        display: none;
+    .MuiTabs-indicator {
+      display: none;
     }
   }
 `;

@@ -1,7 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
-import { Box, Tab, Tabs } from "@mui/material";
-import { primaryColors } from "Theme/_muiPalette";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+
 import React, { useEffect } from "react";
+
 const CustomTabWrapper = styled(Box)`
   margin-left: 0%;
 
@@ -38,7 +44,7 @@ interface toggleProps {
   dataset: string[];
   onDataCallback?: (data: string | any) => void;
 }
-const OnlineToggleTab = ({ dataset,onDataCallback }: toggleProps) => {
+const OnlineToggleTab = ({ dataset, onDataCallback }: toggleProps) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

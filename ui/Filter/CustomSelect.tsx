@@ -1,6 +1,8 @@
+/* eslint-disable react/destructuring-assignment */
+import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
-import { OutlinedInput, Select, SelectProps } from "@mui/material";
-import { primaryColors } from "Theme/_muiPalette";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Select, { SelectProps } from "@mui/material/Select";
 
 const CustomSelectWrapper = styled(Select)`
   &.MuiOutlinedInput-root {
@@ -10,7 +12,7 @@ const CustomSelectWrapper = styled(Select)`
     border-radius: 8px;
     /* border: 1px solid ${primaryColors.borderprimary}; */
     min-width: 130px;
-    
+
     .MuiSelect-select {
       padding: 0;
       /* padding-right: 40px; */
@@ -22,12 +24,11 @@ const CustomSelectWrapper = styled(Select)`
     fieldset {
       border: 1px solid ${primaryColors.borderprimary};
     }
-    .MuiSelect-icon{
-
-        padding: 0;
-    line-height: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    .MuiSelect-icon {
+      padding: 0;
+      line-height: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   .menu_item {
@@ -38,7 +39,6 @@ const CustomSelectWrapper = styled(Select)`
 `;
 interface CustomSelectProps extends SelectProps {
   children: React.ReactNode;
-  
 }
 const CustomSelect = (props: CustomSelectProps) => {
   const MenuProps = {
@@ -57,7 +57,7 @@ const CustomSelect = (props: CustomSelectProps) => {
       IconComponent={props?.IconComponent}
       MenuProps={MenuProps}
       inputProps={{ "aria-label": "Without label" }}
-      className={props.className}
+      // className={props.className}
       {...props}
     >
       {/* {dataset.map((name) => (

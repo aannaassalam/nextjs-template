@@ -4,17 +4,17 @@ import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
   display: flex;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-radius: 8px;
-
+  padding: 16px 44px;
+  border-radius: 50px;
+  min-width: 194px;
+  justify-content: center;
+  align-items: center;
   &.Mui-disabled {
     background-color: ${primaryColors?.disabledBg};
     border: 1px solid ${primaryColors?.disabledBg};
 
     p {
-      color: var(--mainFontColor);
-      /* color: var(--black); */
+      color: ${primaryColors?.white};
     }
     img {
       filter: contrast(0);
