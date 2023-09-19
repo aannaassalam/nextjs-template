@@ -1,48 +1,25 @@
-import { demo } from "@/json/mock/demo.mock";
+import StorySec from "@/components/StorySec/StorySec";
+import assest from "@/json/assest";
+import { cardList } from "@/json/mock/cardlist.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
-import RightArrowIcon from "@/ui/Icons/RightArrowIcon";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 
 export default function Home() {
   return (
     <Wrapper>
-      <div>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At,
-          officiis?
+      <StorySec cardList={cardList} image={assest?.story_img} title="Our Story">
+        <Typography>
+          Dr. Mitchell Schwartz founded Procell Therapies in 2013 with a bold
+          vision. During his 30+ years as a practicing dermatologist he had
+          observed the limitations and damage caused by other anti-aging
+          systems. Dr. Schwartz realized that with some engineering and
+          ingenuity he could provide better results in a safe and non-invasive
+          way. Thanks to our roots in dermatology practice, we know what it
+          takes to successfully adopt a new treatment technology. That’s why
+          Procell Therapies provides trainings, marketing materials, and a
+          lifetime guarantee for all of our products.
         </Typography>
-        <Typography variant="h1">Hello</Typography>
-        <CustomButtonPrimary
-          variant="contained"
-          color="primary"
-          endIcon={<RightArrowIcon />}
-        >
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <CustomButtonPrimary variant="contained" color="success">
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <CustomButtonPrimary variant="contained" color="secondary">
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <CustomButtonPrimary variant="contained" color="primary">
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <CustomButtonPrimary variant="contained" color="primary">
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <CustomButtonPrimary variant="contained" color="primary">
-          <Typography>Hello</Typography>
-        </CustomButtonPrimary>
-        <List>
-          {demo?.map((item) => (
-            <ListItem>{item?.name}</ListItem>
-          ))}
-        </List>
-      </div>
+      </StorySec>
     </Wrapper>
   );
 }

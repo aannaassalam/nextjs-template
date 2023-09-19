@@ -1,3 +1,4 @@
+/* eslint-disable mui-path-imports/mui-path-imports */
 /* eslint-disable no-console */
 /* eslint-disable react/no-unused-prop-types */
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,11 +20,14 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
-import styled from "@emotion/styled";
+
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import { Badge } from "@mui/material";
+import CartIcon from "@/ui/Icons/cartIcon";
 
 // const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
@@ -37,75 +41,24 @@ interface Props {
 
 const drawerWidth = 240;
 
-const HeaderWrap = styled(Box)`
-  background: var(--white);
-  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
-  .MuiToolbar-root {
-    min-height: auto;
-  }
-  .hdr_rgt {
-    margin-left: 18px;
-  }
-
-  .headerContainer {
-    background-color: transparent !important;
-    padding: 20px 0;
-    transition: all 0.4s;
-  }
-
-  .headerLogo {
-    width: 250px;
-    display: inline-block;
-    transition: all 0.4s;
-  }
-  .navbar {
-    margin-left: auto;
-    a {
-      margin-right: 30px;
-      display: inline-block;
-      color: var(--black);
-      &:hover {
-        color: var(--color0000FF);
-      }
-      &:last-child {
-        margin-right: 0;
-      }
-      &:first-child {
-        margin-left: 0;
-      }
-      &.active {
-        color: var(--color0000FF);
-      }
-    }
-  }
-`;
-
 export default function Header(props: Props) {
   console.log(props);
   const navItems = [
     {
-      name: "Home",
-      route: "/"
+      name: "Clinical studies",
+      route: "javascript:void(0)"
     },
     {
-      name: "Superchargers",
-      route: "/superchargers"
+      name: "The science",
+      route: "javascript:void(0)"
     },
     {
-      name: "Hosts",
-      route: "/hosts"
+      name: "Shop",
+      route: "javascript:void(0)"
     },
     {
-      name: "Leasing Agents",
-      route: "/leasingagents"
-    },
-    {
-      name: "EV Drivers",
-      route: "/drivers"
-    },
-    {
-      name: "About Us",
-      route: "/about"
+      name: "Contact us",
+      route: "javascript:void(0)"
     }
   ];
 
@@ -169,7 +122,7 @@ export default function Header(props: Props) {
         elevation={0}
         className="headerContainer"
       >
-        <Container fixed className="cus_container">
+        <Container fixed>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -224,6 +177,11 @@ export default function Header(props: Props) {
               </Box>
             )}
             <Box className="hdr_rgt">
+              <Box className="cart_icon">
+                <Badge color="primary" variant="dot">
+                  <CartIcon/>
+                </Badge>
+              </Box>
               <CustomButtonPrimary
                 type="button"
                 variant="contained"

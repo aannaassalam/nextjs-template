@@ -18,7 +18,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
     palette: pallete(mode),
     typography: {
       fontFamily: ["Roboto"].join(","),
-      fontSize: 14,
+      fontSize: 16,
       h1: {
         fontSize: "67px",
         lineHeight: "1.1em",
@@ -30,9 +30,9 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         }
       },
       h2: {
-        fontSize: "24px",
+        fontSize: "106px",
         lineHeight: "1.1em",
-        fontWeight: "700",
+        fontWeight: "400",
         fontFamily: "Cinzel",
         "@media(max-width:991px)": {
           fontSize: "22px",
@@ -80,7 +80,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         }
       },
       body1: {
-        fontSize: "14px",
+        fontSize: "16px",
         lineHeight: "1.5em",
         color: "#8F98A8"
       },

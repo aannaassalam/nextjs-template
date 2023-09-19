@@ -154,18 +154,12 @@ export const WrapperStyle = styled(Box)`
     text-decoration: none;
   }
 
-  .MuiContainer-root {
-    @media (min-width: 1200px) {
-      max-width: 1185px;
-    }
-  }
-
   .MuiButtonBase-root {
     text-transform: none !important;
   }
 
   .cmn_gap {
-    padding: 120px 0;
+    padding: 50px 0;
   }
 
   .cmn_gap_top {
@@ -413,6 +407,7 @@ export const WrapperStyle = styled(Box)`
   .MuiContainer-root {
     @media (min-width: 1200px) {
       max-width: 1170px;
+      padding: 0 10px;
     }
     &.cus_container {
       @media (min-width: 1400px) {
