@@ -1,11 +1,12 @@
 import { WeoffersWrapper } from "@/styles/StyledComponents/WeoffersWrapper";
-import { Box, Container } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
 function Weoffers() {
   return (
     <WeoffersWrapper>
       <Box className="weofferswrapper">
-        <Container></Container>
+        <Container />
       </Box>
     </WeoffersWrapper>
   );
