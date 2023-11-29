@@ -1,0 +1,235 @@
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@import "./abstracts/theme.module";
+
+:root {
+  @include printVariables();
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--bodyFontColor);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins";
+  background-color: var(--white) !important;
+  overflow-x: hidden;
+}
+#__next {
+  overflow-x: hidden;
+}
+
+.cmn_sec {
+  padding: 100px 0;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+  }
+  @media (max-width: 599px) {
+    padding: 40px 0;
+  }
+}
+.MuiContainer-root {
+  &.custom_container {
+    max-width: 1500px;
+    width: 100%;
+    padding: 0 50px;
+    @media (max-width: 1399px) {
+      padding: 0 30px;
+    }
+    @media (max-width: 1199px) {
+      padding: 0 15px;
+    }
+  }
+}
+
+.MuiDialog-container {
+  .MuiDialog-paper {
+    width: 100%;
+  }
+  .main_formModals {
+    position: relative;
+    max-width: 670px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 50px;
+    @media (max-width: 899px) {
+      padding-bottom: 20px;
+    }
+    h2 {
+      color: rgba(39, 30, 60, 1);
+      font-size: 35px !important;
+      font-weight: 700 !important;
+      text-align: center;
+      margin-bottom: 60px;
+      @media (max-width: 1199px) {
+        font-size: 30px !important;
+        margin-bottom: 30px;
+      }
+      @media (max-width: 899px) {
+        font-size: 24px !important;
+        margin-bottom: 20px;
+      }
+      @media (max-width: 599px) {
+        font-size: 20px !important;
+      }
+    }
+    .btnWrap {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        max-width: 120px;
+        span {
+          color: rgba(39, 30, 60, 1) !important;
+        }
+      }
+    }
+    .wrapper_allForm {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      .MuiFormControl-root {
+        margin-bottom: 20px;
+        @media (max-width: 899px) {
+          margin-bottom: 10px;
+        }
+      }
+      .MuiInputBase-root {
+        border: 0;
+        background: rgba(39, 30, 60, 0.05);
+        min-height: 40px;
+        // margin-bottom: 20px;
+        min-width: auto;
+
+        .MuiInputBase-input {
+          &::placeholder {
+            color: rgba(39, 30, 60, 1);
+            opacity: 0.6;
+          }
+        }
+      }
+      textarea {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.MuiDrawer-paper {
+  background: linear-gradient(180deg, #271e3c 0%, #52407b 100%);
+  z-index: 9999;
+  .wrapper_drawer {
+    padding: 60px 10px 20px;
+    z-index: 99;
+    .headerLogoDrawer {
+      max-width: 150px;
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+    .navList {
+      padding: 20px 10px;
+      li {
+        margin: 10px 0;
+        button {
+          line-height: 1;
+          min-width: auto;
+          color: rgba(255, 255, 255, 1);
+          font-size: 16px;
+          font-weight: 500;
+
+          background-size: 6px;
+          padding: 0 20px 0 0;
+          width: 100%;
+          justify-content: flex-start;
+
+          &.dropdown-icon {
+            background: url(/assets/images/menuArrows.svg) transparent no-repeat
+              center right;
+          }
+        }
+        a {
+          padding: 0;
+          line-height: 1;
+          min-width: auto;
+          color: rgba(255, 255, 255, 1);
+          font-size: 16px;
+          font-weight: 500;
+          text-decoration: none;
+        }
+      }
+    }
+    .clodeMenu_btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      min-width: auto;
+      padding: 10px;
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+    }
+  }
+}
+.deskTop_view {
+  @media (max-width: 899px) {
+    display: none !important;
+  }
+}
+.apexcharts-text {
+  tspan {
+    @media (max-width: 599px) {
+      font-size: 8px;
+    }
+  }
+}
+.chartMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .apexcharts-datalabel {
+    @media (max-width: 599px) {
+      font-size: 10px;
+    }
+  }
+  .apexcharts-text {
+    tspan {
+      @media (max-width: 599px) {
+        font-size: 12px;
+      }
+    }
+  }
+}
+.mt-433 {
+  max-width: 422px;
+  margin: 2px auto;
+  margin-top: 20px;
+}
+.filter-menu {
+  .MuiMenu-paper {
+    @media (max-width: 991px) {
+      margin-top: 5px !important;
+    }
+  }
+}

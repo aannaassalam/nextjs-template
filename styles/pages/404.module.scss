@@ -1,0 +1,43 @@
+.container {
+  min-height: 100vh;
+  text-align: center;
+  background-image: url("../../public/assets/images/404-background.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  // @media (max-width: 479px) {
+  //   min-height: initial;
+  // }
+
+  > img {
+    position: absolute;
+    height: 100%;
+    right: 7%;
+    top: 0;
+  }
+
+  .errorImg{
+    @media (max-width:599px) {
+        width: 247px;
+    }
+  }
+
+  .inner {
+    flex: 1;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      font-weight: 800;
+    }
+    > div {
+      margin: 0 auto;
+    }
+  }
+}
