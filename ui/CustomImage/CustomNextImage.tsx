@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import assest from "@/json/assets";
 import Image, { ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 

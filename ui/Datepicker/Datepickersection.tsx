@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-extraneous-dependencies */
+import assest from "@/json/assets";
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
@@ -11,7 +12,6 @@ import {
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
-import assest from "json/assest";
 import React, { useState } from "react";
 
 const DatepickerWrapper = styled(Box)`

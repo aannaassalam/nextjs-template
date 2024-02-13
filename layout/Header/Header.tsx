@@ -17,17 +17,17 @@ import * as React from "react";
 
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
-import assest from "@/json/assest";
+import assest from "@/json/assets";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 
+import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import CartIcon from "@/ui/Icons/cartIcon";
+import { Badge } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
-import { Badge } from "@mui/material";
-import CartIcon from "@/ui/Icons/cartIcon";
 
 // const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
@@ -179,7 +179,7 @@ export default function Header(props: Props) {
             <Box className="hdr_rgt">
               <Box className="cart_icon">
                 <Badge color="primary" variant="dot">
-                  <CartIcon/>
+                  <CartIcon />
                 </Badge>
               </Box>
               <CustomButtonPrimary

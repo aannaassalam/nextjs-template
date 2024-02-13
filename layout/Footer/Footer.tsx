@@ -1,12 +1,10 @@
-import assest from "@/json/assest";
+import assest from "@/json/assets";
 import styled from "@emotion/styled";
-import Image from "next/image";
-import React from "react";
+import { List, ListItem } from "@mui/material";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
-import { List, ListItem } from "@mui/material";
-import path from "path";
 import { useRouter } from "next/router";
 
 const FooterWrap = styled(Box)`
@@ -41,7 +39,7 @@ const FooterWrap = styled(Box)`
         &:hover {
           color: var(--black);
         }
-        &.active{
+        &.active {
           color: var(--black);
         }
       }
@@ -68,7 +66,7 @@ const FooterWrap = styled(Box)`
     li {
       width: auto;
       margin-right: 20px;
-      
+
       &:last-child {
         margin-right: 0;
       }
@@ -110,50 +108,48 @@ const FooterWrap = styled(Box)`
 const navItems = [
   {
     name: "home",
-    route: "/",
+    route: "/"
   },
   {
     name: "About",
-    route: "/about",
+    route: "/about"
   },
   {
     name: "Products",
-    route: "/products",
+    route: "/products"
   },
   {
     name: "Package",
-    route: "/package",
+    route: "/package"
   },
   {
     name: "Contact",
-    route: "/contact",
-  },
+    route: "/contact"
+  }
 ];
-
-
 
 const Footer = () => {
   const navItems = [
     {
       name: "home",
-      route: "/",
+      route: "/"
     },
     {
       name: "About",
-      route: "/about",
+      route: "/about"
     },
     {
       name: "Products",
-      route: "/products",
+      route: "/products"
     },
     {
       name: "Package",
-      route: "/package",
+      route: "/package"
     },
     {
       name: "Contact",
-      route: "/contact",
-    },
+      route: "/contact"
+    }
   ];
   const router = useRouter();
   return (
@@ -168,13 +164,17 @@ const Footer = () => {
             <List className="ftr-list">
               {navItems.map((item: any, index: number) => (
                 <ListItem disablePadding>
-                  <Link href={item?.route} key={item.name} className={router.pathname === item.route ? "active" : ""}>
+                  <Link
+                    href={item?.route}
+                    key={item.name}
+                    className={router.pathname === item.route ? "active" : ""}
+                  >
                     {item?.name}
                   </Link>
                 </ListItem>
               ))}
             </List>
- 
+
             <Box className="copy">
               © 2023 <Link href="/">Career Utility.</Link> All Rights Reserved.
             </Box>
